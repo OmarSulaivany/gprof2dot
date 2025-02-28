@@ -212,8 +212,7 @@ See also [Kirill Rogozhin's blog post](http://web.archive.org/web/20130506045856
 ### gprof
 
     /path/to/your/executable arg1 arg2
-    gprof path/to/your/executable | gprof2dot.py | dot -Tpng -o output.png
-
+    gprof path/to/your/executable
 ### python profile
 
     python -m profile -o output.pstats path/to/your/script arg1 arg2

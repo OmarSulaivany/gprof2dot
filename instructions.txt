@@ -1,0 +1,50 @@
+command
+gcc -D K=3 -D SPECIALIZED=1 -D MATH_TYPE=1 -D DIST_METHOD=1 -D USE_SQRT=1 -D SCENARIO_FEATURES=2 -D READ=4 -D DIMEM=0 -D VERIFY=0 -D STREAMING=1 -O3 -Wall -Wextra -std=gnu99  knn.c utils.c timer.c io.c features.c main.c -lm -o knn
+
+explanation
+1. Preprocessor Macros (-D <MACRO>=<VALUE>)
+The -D flag defines preprocessor macros that modify how the source code is compiled. These are typically used to enable or disable specific features at compile time.
+
+-D K=3 → Sets K=3, likely defining the number of neighbors in the KNN algorithm.
+-D SPECIALIZED=1 → Enables a specialized version of the code.
+-D MATH_TYPE=1 → Defines the type of mathematical operations used.
+-D DIST_METHOD=1 → Specifies the distance calculation method.
+-D USE_SQRT=1 → Enables the use of the square root function in distance calculations.
+-D SCENARIO_FEATURES=2 → Defines a specific feature scenario.
+-D READ=4 → Possibly related to how data is read or processed.
+-D DIMEM=0 → Likely controls memory allocation behavior.
+-D VERIFY=0 → Disables verification or correctness checks.
+-D STREAMING=1 → Enables streaming mode for processing data.
+These macros are used within the C code with #ifdef, #ifndef, or #if directives to conditionally compile different parts of the code.
+
+2. Optimization and Warning Flags
+-O3 → Enables maximum optimization for speed.
+-Wall → Enables most common warnings.
+-Wextra → Enables additional warnings beyond -Wall.
+These help improve performance and catch potential coding issues.
+
+3. Standard and Linking
+-std=gnu99 → Uses GNU C99 standard for compilation.
+-lm → Links the math library (libm), needed for functions like sqrt(), pow(), etc.
+
+4. Source Files
+You're compiling multiple C source files into one executable (knn):
+
+knn.c →  the core KNN implementation.
+utils.c → Utility functions.
+timer.c → Functions for timing execution.
+io.c → Handles input/output operations.
+features.c → Possibly manages feature extraction or dataset processing.
+main.c → The main entry point of the program.
+
+5. Profiling (-pg)
+-pg → Enables profiling with gprof. This generates a gmon.out file when you run the executable, which can be analyzed to see where execution time is spent.
+
+
+command execution
+./knn
+
+command profiling
+gprof knn
+
+gprof knn | gprof2dot | dot -Tpng -o output.png
