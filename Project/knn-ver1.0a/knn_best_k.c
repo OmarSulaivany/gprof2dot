@@ -7,7 +7,7 @@
 *	by Jo�o MP Cardoso
 *	Email: jmpc@fe.up.pt
 *
-*	SPeCS, FEUP.DEI, University of Porto, Portugal
+*	SPeCS, FEUP.DEI, University of Porto, Portugal.
 */
 
 #include <math.h>
