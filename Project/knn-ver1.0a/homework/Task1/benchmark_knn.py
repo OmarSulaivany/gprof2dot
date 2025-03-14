@@ -20,8 +20,10 @@ for opt in optimizations:
     print(f"Running tests for {opt}...")
     execution_times = []
 
-    # Compile the program with profiling (-pg)
-    compile_cmd = f"gcc {opt} -pg -D K=3 -D SPECIALIZED=1 -D MATH_TYPE=1 -D DIST_METHOD=1 -D USE_SQRT=1 -D SCENARIO_FEATURES=2 -D READ=4 -D DIMEM=0 -D VERIFY=0 -D STREAMING=1 -Wall -Wextra -std=gnu99 {PROJECT_DIR}/knn.c {PROJECT_DIR}/utils.c {PROJECT_DIR}/timer.c {PROJECT_DIR}/io.c {PROJECT_DIR}/features.c {PROJECT_DIR}/main.c -lm -o {PROJECT_DIR}/knn"
+    # with no vectorization -fno-tree-vectorize.
+    # Compile the program with profiling (-pg).
+    # Take avantage of the whole CPU personalized to the machine -march=native -mtune=native 
+    compile_cmd = f"gcc -fopenmp {opt} -pg -D K=3 -D SPECIALIZED=1 -D MATH_TYPE=1 -D DIST_METHOD=1 -D USE_SQRT=1 -D SCENARIO_FEATURES=2 -D READ=4 -D DIMEM=0 -D VERIFY=0 -D STREAMING=1 -Wall -Wextra -std=gnu99 {PROJECT_DIR}/knn_openmp.c {PROJECT_DIR}/utils.c {PROJECT_DIR}/timer.c {PROJECT_DIR}/io.c {PROJECT_DIR}/features.c {PROJECT_DIR}/main.c -lm -o {PROJECT_DIR}/knn"
     subprocess.run(compile_cmd, shell=True, check=True)
 
     # Run the program 10 times and save gmon.out files
