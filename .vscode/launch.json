@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/omar/gprof2dot/Project/knn-ver1.0a",
-      "program": "/home/omar/gprof2dot/Project/knn-ver1.0a/build/Debug/outDebug",
+      "cwd": "/home/omar/gprof2dot/Project/knn-ver1.0b-dynamic-data-points",
+      "program": "/home/omar/gprof2dot/Project/knn-ver1.0b-dynamic-data-points/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

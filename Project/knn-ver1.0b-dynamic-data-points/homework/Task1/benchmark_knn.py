@@ -5,7 +5,7 @@ import os
 import glob
 
 # Fix paths by expanding ~ to absolute paths
-PROJECT_DIR = os.path.expanduser("~/gprof2dot/Project/knn-ver1.0a")
+PROJECT_DIR = os.path.expanduser("~/gprof2dot/Project/knn-ver1.0b-dynamic-data-points")
 
 # Get the current directory where the script is executed
 OUTPUT_DIR = os.getcwd()

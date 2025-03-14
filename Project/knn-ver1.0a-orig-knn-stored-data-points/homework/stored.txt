@@ -1,0 +1,9 @@
+Benchmark Configuration:
+Selected Optimization: -O1, -O2, -O3
+Number of Runs per Optimization: 10
+Compilation Command: gcc -fopenmp -O3 -D K=3 -D SPECIALIZED=1 -D MATH_TYPE=1 -D DIST_METHOD=1 -D USE_SQRT=1 -D SCENARIO_FEATURES=2 -D READ=4 -D DIMEM=0 -D VERIFY=0 -D STREAMING=1 -Wall -Wextra -std=gnu99 /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/knn_adjusted.c /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/utils.c /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/timer.c /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/io.c /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/features.c /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/main.c -lm -o /home/omar/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points/knn
+
+Benchmark Results:
+-O1: 0.1169 s
+-O2: 0.0789 s
+-O3: 0.0782 s
