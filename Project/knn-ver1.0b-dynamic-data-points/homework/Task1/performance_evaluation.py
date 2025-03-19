@@ -6,7 +6,7 @@ import glob
 
 # Fix paths by expanding ~ to absolute paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the script's directory
-PROJECT_DIR = os.path.expanduser("~/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points")
+PROJECT_DIR = os.path.expanduser("~/gprof2dot/Project/knn-ver1.0b-dynamic-data-points")
 OUTPUT_DIR = os.getcwd()
 
 # Available optimization levels
@@ -34,8 +34,8 @@ use_openmp = openmp_choice == "y"
 openmp_flag = "-fopenmp" if use_openmp else ""  # Add OpenMP flag only if enabled
 
 # User chooses whether to disable tree vectorization
-vectorization_choice = input("Disable tree vectorization? (y/n): ").strip().lower()
-vectorization_flag = "-fno-tree-vectorize" if vectorization_choice == "y" else "-ftree-vectorize"
+vectorization_choice = input("Enable tree vectorization? (y/n): ").strip().lower()
+vectorization_flag = "-ftree-vectorize" if vectorization_choice == "y" else "-fno-tree-vectorize"
 
 # User provides a name for the results folder and file
 result_name = input("Enter the name for the results: ").strip()
@@ -49,7 +49,7 @@ os.sync()  # Force sync to disk
 output_filepath = os.path.join(result_folder, f"{result_name}.txt")
 
 for opt in optimizations:
-    print(f"Running tests for {opt} (OpenMP: {'Enabled' if use_openmp else 'Disabled'}, Vectorization: {'Disabled' if vectorization_choice == 'y' else 'Enabled'})...")
+    print(f"Running tests for {opt} (OpenMP: {'Enabled' if use_openmp else 'Disabled'}, Vectorization: {'Enabled' if vectorization_choice == 'y' else 'Disabled'})...")
 
     execution_times = []
 

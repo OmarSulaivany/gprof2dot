@@ -6,7 +6,7 @@ import glob
 
 # Fix paths by expanding ~ to absolute paths
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the script's directory
-PROJECT_DIR = os.path.expanduser("~/gprof2dot/Project/knn-ver1.0a-orig-knn-stored-data-points")
+PROJECT_DIR = os.path.expanduser("~/gprof2dot/Project/knn-ver1.0c-selective-threads")
 OUTPUT_DIR = os.getcwd()
 
 # Available optimization levels

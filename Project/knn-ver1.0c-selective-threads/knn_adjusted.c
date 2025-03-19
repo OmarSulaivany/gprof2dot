@@ -51,24 +51,6 @@ void initialize_3_nearest(BestPoint *best_points) {
 	}
 }
 
-// merge_best_3_points(best_points_thread_0, best_points_thread_1, best_points)
-// {
-// 	// merge the two arrays of best points.
-// 	// The function will be called here.
-// 	for(int i = 0; i < 3; i++)
-// 	{
-// 		if(best_points_thread_0[i].distance < best_points_thread_1[i].distance)
-// 		{
-// 			best_points[i].distance = best_points_thread_0[i].distance;
-// 			best_points[i].classification_id = best_points_thread_0[i].classification_id;
-// 		}
-// 		else
-// 		{
-// 			best_points[i].distance = best_points_thread_1[i].distance;
-// 			best_points[i].classification_id = best_points_thread_1[i].classification_id;
-// 		}
-// 	}
-// }
 
 //__restrict assigning pointers to each value in order to make sure they dont overlap and are eligible for vectorization
 void get_3_NN(Point * __restrict new_point, Point * __restrict known_points, int num_points,
@@ -140,7 +122,7 @@ void get_3_NN(Point * __restrict new_point, Point * __restrict known_points, int
 	#if DIMEM != 0
 	free(dist_points);
 	#endif
-}
+} // end of get_3_NN
 
 /*
 * Classify a given Point (instance).
