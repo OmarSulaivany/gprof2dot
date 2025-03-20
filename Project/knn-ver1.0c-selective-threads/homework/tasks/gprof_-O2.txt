@@ -2,22 +2,20 @@ Flat profile:
 
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
- time   seconds   seconds    calls  us/call  us/call  name    
- 96.55      5.60     5.60    10080   555.56   575.40  get_3_NN
-  3.45      5.80     0.20    10080    19.84    19.84  select_3_nearest
-  0.00      5.80     0.00    10080     0.00     0.00  copy_3_nearest
-  0.00      5.80     0.00    10080     0.00   575.40  knn_classifyinstance_3
-  0.00      5.80     0.00    10080     0.00     0.00  minmax_normalize_point
-  0.00      5.80     0.00    10080     0.00     0.00  plurality_voting_3
-  0.00      5.80     0.00    10080     0.00     0.00  put
-  0.00      5.80     0.00       20     0.00     0.00  read_data_points
-  0.00      5.80     0.00       10     0.00     0.00  calc_delta_ms
-  0.00      5.80     0.00       10     0.00     0.00  timer_destroy
-  0.00      5.80     0.00       10     0.00     0.00  timer_get_ms
-  0.00      5.80     0.00       10     0.00     0.00  timer_get_s
-  0.00      5.80     0.00       10     0.00     0.00  timer_init
-  0.00      5.80     0.00       10     0.00     0.00  timer_start
-  0.00      5.80     0.00       10     0.00     0.00  timer_stop
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+ 99.48      1.93     1.93                             compare_best_points
+  0.52      1.94     0.01                             _init
+  0.00      1.94     0.00    10080     0.00     0.00  get_3_NN
+  0.00      1.94     0.00    10080     0.00     0.00  knn_classifyinstance_3
+  0.00      1.94     0.00    10080     0.00     0.00  merge_best_3_points
+  0.00      1.94     0.00    10080     0.00     0.00  minmax_normalize_point
+  0.00      1.94     0.00    10080     0.00     0.00  put
+  0.00      1.94     0.00       20     0.00     0.00  read_data_points
+  0.00      1.94     0.00       10     0.00     0.00  timer_destroy
+  0.00      1.94     0.00       10     0.00     0.00  timer_get_s
+  0.00      1.94     0.00       10     0.00     0.00  timer_init
+  0.00      1.94     0.00       10     0.00     0.00  timer_start
+  0.00      1.94     0.00       10     0.00     0.00  timer_stop
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -55,71 +53,49 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 4 byte(s) for 0.17% of 5.80 seconds
+granularity: each sample hit covers 4 byte(s) for 0.52% of 1.94 seconds
 
 index % time    self  children    called     name
-                5.60    0.20   10080/10080       knn_classifyinstance_3 [2]
-[1]    100.0    5.60    0.20   10080         get_3_NN [1]
-                0.20    0.00   10080/10080       select_3_nearest [4]
-                0.00    0.00   10080/10080       copy_3_nearest [5]
------------------------------------------------
-                0.00    5.80   10080/10080       main [3]
-[2]    100.0    0.00    5.80   10080         knn_classifyinstance_3 [2]
-                5.60    0.20   10080/10080       get_3_NN [1]
-                0.00    0.00   10080/10080       plurality_voting_3 [7]
+                                                 <spontaneous>
+[1]     99.5    1.93    0.00                 compare_best_points [1]
 -----------------------------------------------
                                                  <spontaneous>
-[3]    100.0    0.00    5.80                 main [3]
-                0.00    5.80   10080/10080       knn_classifyinstance_3 [2]
-                0.00    0.00   10080/10080       put [8]
-                0.00    0.00   10080/10080       minmax_normalize_point [6]
-                0.00    0.00      20/20          read_data_points [9]
-                0.00    0.00      10/10          timer_start [15]
-                0.00    0.00      10/10          timer_init [14]
-                0.00    0.00      10/10          timer_stop [16]
-                0.00    0.00      10/10          timer_get_s [13]
-                0.00    0.00      10/10          timer_destroy [11]
+[2]      0.5    0.01    0.00                 _init [2]
 -----------------------------------------------
-                0.20    0.00   10080/10080       get_3_NN [1]
-[4]      3.4    0.20    0.00   10080         select_3_nearest [4]
+                0.00    0.00   10080/10080       knn_classifyinstance_3 [4]
+[3]      0.0    0.00    0.00   10080         get_3_NN [3]
+                0.00    0.00   10080/10080       merge_best_3_points [5]
 -----------------------------------------------
-                0.00    0.00   10080/10080       get_3_NN [1]
-[5]      0.0    0.00    0.00   10080         copy_3_nearest [5]
+                0.00    0.00   10080/10080       main [20]
+[4]      0.0    0.00    0.00   10080         knn_classifyinstance_3 [4]
+                0.00    0.00   10080/10080       get_3_NN [3]
 -----------------------------------------------
-                0.00    0.00   10080/10080       main [3]
+                0.00    0.00   10080/10080       get_3_NN [3]
+[5]      0.0    0.00    0.00   10080         merge_best_3_points [5]
+-----------------------------------------------
+                0.00    0.00   10080/10080       main [20]
 [6]      0.0    0.00    0.00   10080         minmax_normalize_point [6]
 -----------------------------------------------
-                0.00    0.00   10080/10080       knn_classifyinstance_3 [2]
-[7]      0.0    0.00    0.00   10080         plurality_voting_3 [7]
+                0.00    0.00   10080/10080       main [20]
+[7]      0.0    0.00    0.00   10080         put [7]
 -----------------------------------------------
-                0.00    0.00   10080/10080       main [3]
-[8]      0.0    0.00    0.00   10080         put [8]
+                0.00    0.00      20/20          main [20]
+[8]      0.0    0.00    0.00      20         read_data_points [8]
 -----------------------------------------------
-                0.00    0.00      20/20          main [3]
-[9]      0.0    0.00    0.00      20         read_data_points [9]
+                0.00    0.00      10/10          main [20]
+[9]      0.0    0.00    0.00      10         timer_destroy [9]
 -----------------------------------------------
-                0.00    0.00      10/10          timer_stop [16]
-[10]     0.0    0.00    0.00      10         calc_delta_ms [10]
+                0.00    0.00      10/10          main [20]
+[10]     0.0    0.00    0.00      10         timer_get_s [10]
 -----------------------------------------------
-                0.00    0.00      10/10          main [3]
-[11]     0.0    0.00    0.00      10         timer_destroy [11]
+                0.00    0.00      10/10          main [20]
+[11]     0.0    0.00    0.00      10         timer_init [11]
 -----------------------------------------------
-                0.00    0.00      10/10          timer_get_s [13]
-[12]     0.0    0.00    0.00      10         timer_get_ms [12]
+                0.00    0.00      10/10          main [20]
+[12]     0.0    0.00    0.00      10         timer_start [12]
 -----------------------------------------------
-                0.00    0.00      10/10          main [3]
-[13]     0.0    0.00    0.00      10         timer_get_s [13]
-                0.00    0.00      10/10          timer_get_ms [12]
------------------------------------------------
-                0.00    0.00      10/10          main [3]
-[14]     0.0    0.00    0.00      10         timer_init [14]
------------------------------------------------
-                0.00    0.00      10/10          main [3]
-[15]     0.0    0.00    0.00      10         timer_start [15]
------------------------------------------------
-                0.00    0.00      10/10          main [3]
-[16]     0.0    0.00    0.00      10         timer_stop [16]
-                0.00    0.00      10/10          calc_delta_ms [10]
+                0.00    0.00      10/10          main [20]
+[13]     0.0    0.00    0.00      10         timer_stop [13]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -212,8 +188,8 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [10] calc_delta_ms           [7] plurality_voting_3     [12] timer_get_ms
-   [5] copy_3_nearest          [8] put                    [13] timer_get_s
-   [1] get_3_NN                [9] read_data_points       [14] timer_init
-   [2] knn_classifyinstance_3  [4] select_3_nearest       [15] timer_start
-   [6] minmax_normalize_point [11] timer_destroy          [16] timer_stop
+   [2] _init                   [6] minmax_normalize_point [11] timer_init
+   [1] compare_best_points     [7] put                    [12] timer_start
+   [3] get_3_NN                [8] read_data_points       [13] timer_stop
+   [4] knn_classifyinstance_3  [9] timer_destroy
+   [5] merge_best_3_points    [10] timer_get_s
