@@ -8,7 +8,8 @@
 
 // Function prototypes
 void initialize_3_nearest(BestPoint *best_points);
-void updating_3_nearest(BestPoint *best_points, DATA_TYPE distance, CLASS_ID_TYPE classification_id);
+static inline void updating_3_nearest(BestPoint *best_points, DATA_TYPE distance, CLASS_ID_TYPE classification_id) __attribute__((always_inline));
+//void updating_3_nearest(BestPoint *best_points, DATA_TYPE distance, CLASS_ID_TYPE classification_id);
 void merge_best_3_points(BestPoint *best_points_thread_0, BestPoint *best_points_thread_1, BestPoint *best_points);
 
 #if SPECIALIZED == 1 && K == 3
@@ -176,7 +177,10 @@ CLASS_ID_TYPE plurality_voting_3(BestPoint *best_points) {
 /**
  * @brief Updates the 3 nearest neighbors if a closer point is found.
  */
-void updating_3_nearest(BestPoint *best_points, DATA_TYPE distance, CLASS_ID_TYPE classification_id) {
+
+ static inline void updating_3_nearest(BestPoint *best_points, DATA_TYPE distance, CLASS_ID_TYPE classification_id)
+ //void updating_3_nearest(BestPoint *best_points, DATA_TYPE distance, CLASS_ID_TYPE classification_id)
+{
     DATA_TYPE max_distance = best_points[0].distance;
     int max_index = 0;
 

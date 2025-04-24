@@ -1,0 +1,11 @@
+Benchmark Configuration:
+Selected Optimization: -O1, -O2, -O3
+Number of Runs per Optimization: 10
+OpenMP Enabled: Yes
+Tree Vectorization: Disabled
+Compilation Command: gcc -fopenmp -ftree-vectorize -O3 -flto -D K=3 -D SPECIALIZED=1 -D MATH_TYPE=1 -D DIST_METHOD=1 -D USE_SQRT=1 -D SCENARIO_FEATURES=2 -D READ=4 -D DIMEM=0 -D VERIFY=0 -D STREAMING=1 -Wall -Wextra -std=gnu99 /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/knn_adjusted.c /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/utils.c /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/timer.c /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/io.c /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/features.c /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/main.c -lm -o /home/omar/gprof2dot/Project/knn-ver1.0c-selective-threads/knn
+
+Benchmark Results:
+-O1: 0.3967 s
+-O2: 0.1808 s
+-O3: 0.1787 s
